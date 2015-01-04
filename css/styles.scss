@@ -1,0 +1,94 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font: 16px $sans-serif;
+	color: $text;
+	background: $background;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 .5em 0;
+	font-family: $serif;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.big {
+	font-size: 27px;
+}
+.box {
+	text-align: center;
+	margin: .5em 1em;
+	padding: 1em .7em;
+}
+
+.flexbox {
+	@include flexbox;
+	@include flex-flow(row);
+	@media (max-width: 600px) {
+		@include flex-flow(column);
+	}
+	.flex-item {
+		@include flex(1);
+	}
+}
+
+
+.current-usage-value,
+.current-usage-time {
+	display: block;
+}
+
+.current-usage-time {
+	font-size: 70%;
+	color: $gray_light;
+}
+
+// LAST 24 Hours
+.chart-container {
+	text-align: center;
+	padding:0;
+	.chart {
+		width: 100%;
+		height: 300px;
+	}
+}
+
+.last-24-low,
+.last-24-avg,
+.last-24-high,
+.last-24-tot {
+	padding:0;
+	h3 {
+		display: inline-block;
+	}
+	span {
+		white-space: nowrap;
+	}
+}
+.last-24-low span {
+	color: $positive;
+}
+.last-24-avg span {
+	color: $primary_medium;
+}
+.last-24-high span {
+	color: $primary_dark;
+}
+
+
+
+#chart_current_gauge {
+	width: 300px;
+	height: 200px;
+	margin: 0 auto;
+}
+.gauge-chart-label {
+	@extend .big;
+	color: $text;
+}
